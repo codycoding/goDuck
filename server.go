@@ -14,11 +14,11 @@ import (
 //  @Description: 程序初始化
 //
 func InitialApp() {
-	global.Vp = core.Viper()                                  // 配置读取：命令行参数|默认文件
-	global.Log = core.Zap()                                   // 初始化日志库
-	global.MysqlDb = core.GormMysql(global.Config.SlpDataDb)  // 初始化Mysql数据库
-	global.PostgresDb = core.GormPostgres(global.Config.DgDb) // 初始化Postgres数据库
-	global.Redis = core.Redis()                               // 初始化Redis连接
+	global.Vp = core.Viper()                                        // 配置读取：命令行参数|默认文件
+	global.Log = core.Zap()                                         // 初始化日志库
+	global.MysqlDb = core.GormMysql(global.Config.MysqlDb)          // 初始化Mysql数据库
+	global.PostgresDb = core.GormPostgres(global.Config.PostgresDb) // 初始化Postgres数据库
+	global.Redis = core.Redis()                                     // 初始化Redis连接
 	// 路由定义
 	// 初始化默认路由组
 	global.Route = gin.Default()
