@@ -1,4 +1,4 @@
-module github.com/codycoding/mini-go-app
+module github.com/codycoding/goDuck
 
 go 1.17
 
