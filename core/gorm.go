@@ -1,9 +1,9 @@
 package core
 
 import (
-	"github.com/codycoding/mini-go-app/core/internal"
-	"github.com/codycoding/mini-go-app/global"
-	"github.com/codycoding/mini-go-app/global/config"
+	"github.com/codycoding/goDuck/core/internal"
+	"github.com/codycoding/goDuck/global"
+	"github.com/codycoding/goDuck/global/config"
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"

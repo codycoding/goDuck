@@ -2,9 +2,9 @@ package framework
 
 import (
 	"fmt"
-	"github.com/codycoding/mini-go-app/core"
-	"github.com/codycoding/mini-go-app/global"
-	"github.com/codycoding/mini-go-app/middleware"
+	"github.com/codycoding/goDuck/core"
+	"github.com/codycoding/goDuck/global"
+	"github.com/codycoding/goDuck/middleware"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )

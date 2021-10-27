@@ -3,7 +3,7 @@
 package global
 
 import (
-	"github.com/codycoding/mini-go-app/global/config"
+	"github.com/codycoding/goDuck/global/config"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"

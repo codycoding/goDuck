@@ -4,7 +4,7 @@
 package utils
 
 import (
-	"github.com/codycoding/mini-go-app/global"
+	"github.com/codycoding/goDuck/global"
 	zaprotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap/zapcore"
 	"os"

@@ -2,8 +2,8 @@ package core
 
 import (
 	"fmt"
-	"github.com/codycoding/mini-go-app/global"
-	"github.com/codycoding/mini-go-app/utils"
+	"github.com/codycoding/goDuck/global"
+	"github.com/codycoding/goDuck/utils"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"os"

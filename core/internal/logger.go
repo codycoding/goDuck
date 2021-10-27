@@ -3,7 +3,7 @@ package internal
 import (
 	"context"
 	"fmt"
-	"github.com/codycoding/mini-go-app/global"
+	"github.com/codycoding/goDuck/global"
 	"gorm.io/gorm/logger"
 	"gorm.io/gorm/utils"
 	"io/ioutil"

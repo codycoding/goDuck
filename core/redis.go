@@ -2,7 +2,7 @@ package core
 
 import (
 	"context"
-	"github.com/codycoding/mini-go-app/global"
+	"github.com/codycoding/goDuck/global"
 	"github.com/go-redis/redis/v8"
 	"go.uber.org/zap"
 )

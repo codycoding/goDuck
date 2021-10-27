@@ -3,7 +3,7 @@ package core
 import (
 	"flag"
 	"fmt"
-	"github.com/codycoding/mini-go-app/global"
+	"github.com/codycoding/goDuck/global"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 )

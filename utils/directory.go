@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/codycoding/mini-go-app/global"
+	"github.com/codycoding/goDuck/global"
 	"go.uber.org/zap"
 	"os"
 )
