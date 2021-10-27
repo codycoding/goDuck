@@ -1,2 +1,2 @@
-# goDuck
-mini framework by Gin
+# mini-go-app
+mini-go-app
