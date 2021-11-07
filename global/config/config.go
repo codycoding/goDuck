@@ -10,4 +10,5 @@ type Server struct {
 	Zap        Zap      `mapstructure:"zap" json:"zap" yaml:"zap"`                      // zap日志配置结构
 	MysqlDb    Mysql    `mapstructure:"mysqlDb" json:"mysqlDb" yaml:"mysqlDb"`          // mysql配置结构
 	PostgresDb Postgres `mapstructure:"postgresDb" json:"postgresDb" yaml:"postgresDb"` // postgres配置结构
+	JWT        JWT      `mapstructure:"jwt" json:"jwt" yaml:"jwt"`                      // JWT配置结构
 }
