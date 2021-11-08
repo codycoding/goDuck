@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/codycoding/goDuck/core"
 	"github.com/codycoding/goDuck/global"
-	"github.com/codycoding/goDuck/middleware"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -23,7 +23,7 @@ func InitialApp() {
 	// 初始化默认路由组
 	global.Route = gin.Default()
 	// 跨域中间件
-	global.Route.Use(middleware.Cors())
+	global.Route.Use(cors.Default())
 	//
 	global.PublicRouter = global.Route.Group("")  // 无权限路由组
 	global.PrivateRouter = global.Route.Group("") // 权限路由组
