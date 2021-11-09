@@ -3,7 +3,6 @@
 package global
 
 import (
-	"github.com/codycoding/goDuck/core"
 	"github.com/codycoding/goDuck/global/config"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
@@ -16,7 +15,7 @@ var (
 	MysqlDb       *gorm.DB         // mysql数据库实例
 	PostgresDb    *gorm.DB         // postgre数据库实例
 	Redis         *redis.Client    // redis内存数据库实例
-	Validator     *core.Validator  // 结构体验证器
+	Validator     *Validate        // 结构体验证器
 	Vp            *viper.Viper     // 命令行处理实例
 	Log           *zap.Logger      // 日志实例
 	Config        config.Server    // 程序配置
