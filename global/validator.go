@@ -13,13 +13,13 @@ type Validate struct {
 }
 
 //
-// formatError
+// FormatError
 //  @Description: 格式化错误信息
 //  @receiver v
 //  @param err
 //  @return error
 //
-func (v *Validate) formatError(err error) error {
+func (v *Validate) FormatError(err error) error {
 	if _, ok := err.(validator.ValidationErrors); ok {
 		// 验证反馈错误
 		var errStr []string
