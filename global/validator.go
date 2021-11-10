@@ -37,14 +37,13 @@ func (v *Validate) ValidateStruct(u interface{}) error {
 //  @return error
 //
 func (v *Validate) FormatError(u interface{}, err error) error {
-	fmt.Println(err)
 	if _, ok := err.(validator.ValidationErrors); ok {
 		// 验证反馈错误
 		var errStr []string
 		for _, err := range err.(validator.ValidationErrors) {
 			// 判断是否有自定义错误信息
 			fieldName := err.Field()
-			field, ok := reflect.TypeOf(u).Elem().FieldByName(fieldName)
+			field, ok := reflect.TypeOf(u).FieldByName(fieldName)
 			if ok {
 				customerErrInfo := field.Tag.Get("errMsg")
 				fmt.Println(customerErrInfo)
