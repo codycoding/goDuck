@@ -14,6 +14,21 @@ type Validate struct {
 }
 
 //
+// validateStruct
+//  @Description: 验证结构体
+//  @receiver v
+//  @param u
+//  @return error
+//
+func (v *Validate) validateStruct(u interface{}) error {
+	if err := v.Validate.Struct(u); err != nil {
+		return v.FormatError(u, err)
+	} else {
+		return nil
+	}
+}
+
+//
 // FormatError
 //  @Description: 格式化错误信息
 //  @receiver v
