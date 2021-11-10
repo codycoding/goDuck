@@ -43,7 +43,7 @@ func (v *Validate) FormatError(u interface{}, err error) error {
 		for _, err := range err.(validator.ValidationErrors) {
 			// 判断是否有自定义错误信息
 			fieldName := err.Field()
-			field, ok := reflect.TypeOf(u).FieldByName(fieldName)
+			field, ok := reflect.TypeOf(u).Elem().FieldByName(fieldName)
 			if ok {
 				customerErrInfo := field.Tag.Get("errMsg")
 				fmt.Println(customerErrInfo)
