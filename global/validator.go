@@ -37,6 +37,7 @@ func (v *Validate) ValidateStruct(u interface{}) error {
 //  @return error
 //
 func (v *Validate) FormatError(u interface{}, err error) error {
+	fmt.Println(err)
 	if _, ok := err.(validator.ValidationErrors); ok {
 		// 验证反馈错误
 		var errStr []string
@@ -54,8 +55,6 @@ func (v *Validate) FormatError(u interface{}, err error) error {
 			errStr = append(errStr, err.Translate(*v.Trans))
 		}
 		return errors.New(strings.Join(errStr, "|"))
-	} else {
-		fmt.Println("opps")
 	}
 	return err
 }
