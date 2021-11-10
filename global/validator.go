@@ -54,6 +54,8 @@ func (v *Validate) FormatError(u interface{}, err error) error {
 			errStr = append(errStr, err.Translate(*v.Trans))
 		}
 		return errors.New(strings.Join(errStr, "|"))
+	} else {
+		fmt.Println("opps")
 	}
 	return err
 }
