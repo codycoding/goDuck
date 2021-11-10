@@ -2,6 +2,7 @@ package global
 
 import (
 	"errors"
+	"fmt"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	"reflect"
@@ -45,6 +46,7 @@ func (v *Validate) FormatError(u interface{}, err error) error {
 			field, ok := reflect.TypeOf(u).FieldByName(fieldName)
 			if ok {
 				customerErrInfo := field.Tag.Get("errMsg")
+				fmt.Println(customerErrInfo)
 				if customerErrInfo != "" {
 					errStr = append(errStr, customerErrInfo)
 				}
