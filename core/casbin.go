@@ -24,6 +24,7 @@ func InitCasbin() *casbin.SyncedEnforcer {
 			if pErr := syncedEnforcer.LoadPolicy(); pErr != nil {
 				global.Log.Error(fmt.Sprintf("Casbin读取策略失败:%s", pErr))
 			} else {
+				global.Log.Info("Casbin实例初始化成功")
 				return syncedEnforcer
 			}
 		}
