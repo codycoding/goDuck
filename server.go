@@ -19,6 +19,7 @@ func InitialApp() {
 	global.MysqlDb = core.GormMysql(global.Config.MysqlDb)          // 初始化Mysql数据库
 	global.PostgresDb = core.GormPostgres(global.Config.PostgresDb) // 初始化Postgres数据库
 	global.Redis = core.Redis()                                     // 初始化Redis连接
+	global.Casbin = core.InitCasbin()                               // 初始化Casbin实例
 	global.Validator = core.GetValidator()                          // 初始化结构体验证器
 	// 路由定义
 	// 初始化默认路由组
