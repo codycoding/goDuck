@@ -11,4 +11,5 @@ type Server struct {
 	MysqlDb    Mysql    `mapstructure:"mysqlDb" json:"mysqlDb" yaml:"mysqlDb"`          // mysql配置结构
 	PostgresDb Postgres `mapstructure:"postgresDb" json:"postgresDb" yaml:"postgresDb"` // postgres配置结构
 	JWT        JWT      `mapstructure:"jwt" json:"jwt" yaml:"jwt"`                      // JWT配置结构
+	Captcha    Captcha  `mapstructure:"captcha" json:"captcha" yaml:"captcha"`          // 验证码配置(权限应用专用)
 }
