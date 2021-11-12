@@ -3,6 +3,8 @@ module github.com/codycoding/goDuck
 go 1.17
 
 require (
+	github.com/casbin/casbin/v2 v2.39.0
+	github.com/casbin/gorm-adapter/v3 v3.4.5
 	github.com/fsnotify/fsnotify v1.5.1
 	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6
 	github.com/gin-contrib/cors v1.3.1
@@ -14,16 +16,19 @@ require (
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/spf13/viper v1.9.0
 	go.uber.org/zap v1.19.1
-	gorm.io/driver/mysql v1.0.3
-	gorm.io/driver/postgres v1.2.1
-	gorm.io/gorm v1.22.0
+	gorm.io/driver/mysql v1.1.2
+	gorm.io/driver/postgres v1.1.2
+	gorm.io/gorm v1.21.15
 )
 
 require (
+	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
+	github.com/denisenkom/go-mssqldb v0.11.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
@@ -61,4 +66,6 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/ini.v1 v1.63.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gorm.io/driver/sqlserver v1.0.9 // indirect
+	gorm.io/plugin/dbresolver v1.1.0 // indirect
 )
