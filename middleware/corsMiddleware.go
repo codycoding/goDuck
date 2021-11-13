@@ -7,11 +7,11 @@ import (
 	"time"
 )
 
-// CorsMiddleware
+// CorsByConfig
 //  @Description: 处理跨域请求
 //  @return gin.HandlerFunc
 //
-func CorsMiddleware() gin.HandlerFunc {
+func CorsByConfig() gin.HandlerFunc {
 	return cors.New(cors.Config{
 		AllowAllOrigins:        false,
 		AllowOrigins:           global.Config.Cors.AllowOrigins,
