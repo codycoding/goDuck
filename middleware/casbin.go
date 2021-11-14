@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"github.com/codycoding/goDuck/core"
 	"github.com/codycoding/goDuck/global"
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,8 @@ func CasbinHandler() gin.HandlerFunc {
 		claims, _ := c.Get("claims")
 		waitUse := claims.(*CustomClaims)
 		// 获取请求的URI
-		obj := c.Request.URL.RequestURI()
+		obj := fmt.Sprintf("%s%s", global.Config.System.UrlPreFix, c.Request.URL.RequestURI())
+		fmt.Println(obj)
 		// 获取请求方法
 		act := c.Request.Method
 		// 获取用户的角色
