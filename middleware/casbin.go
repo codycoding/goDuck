@@ -8,11 +8,11 @@ import (
 )
 
 //
-// CasbinHandlerW
+// CasbinHandler
 //  @Description: API访问权限Casbin鉴权
 //  @return gin.HandlerFunc
 //
-func CasbinHandlerW() gin.HandlerFunc {
+func CasbinHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 正常鉴权
 		claims, _ := c.Get("claims")
@@ -25,7 +25,8 @@ func CasbinHandlerW() gin.HandlerFunc {
 		sub := waitUse.UserInfo.RoleId
 		// 判断策略中是否存在
 		success, _ := global.Casbin.Enforce(sub, obj, act)
-		if global.Config.System.Env == "develop" || success {
+		// 开发环境 或 超管角色跳过访问限制
+		if global.Config.System.Env == "develop" || sub == "9999" || success {
 			c.Next()
 		} else {
 			core.FailWithMessage(http.StatusBadRequest, "权限不足", c)
