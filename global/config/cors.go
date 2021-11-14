@@ -5,6 +5,7 @@ package config
 //  @Description: 跨域配置
 //
 type CorsConfig struct {
+	CorsMode         string   `mapstructure:"cors-mode" json:"corsMode" yaml:"cors-mode"`                         // cors配置模式：default 默认配置  config 自定义配置  none 关闭cors
 	AllowOrigins     []string `mapstructure:"allow-origins" json:"allowOrigins" yaml:"allow-origins"`             // 准许跨域请求的网站
 	AllowMethods     []string `mapstructure:"allow-methods" json:"allowMethods" yaml:"allow-methods"`             // 准许使用的请求方式
 	AllowHeaders     []string `mapstructure:"allow-headers" json:"allowHeaders" yaml:"allow-headers"`             // 准许使用的请求表头
