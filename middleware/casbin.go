@@ -8,11 +8,11 @@ import (
 )
 
 //
-// CasbinHandler
+// CasbinHandlerW
 //  @Description: API访问权限Casbin鉴权
 //  @return gin.HandlerFunc
 //
-func CasbinHandler() gin.HandlerFunc {
+func CasbinHandlerW() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 正常鉴权
 		claims, _ := c.Get("claims")
