@@ -20,7 +20,6 @@ func CasbinHandler() gin.HandlerFunc {
 		waitUse := claims.(*CustomClaims)
 		// 获取请求的URI
 		obj := fmt.Sprintf("%s%s", global.Config.System.UrlPreFix, c.Request.URL.RequestURI())
-		fmt.Println(obj)
 		// 获取请求方法
 		act := c.Request.Method
 		// 获取用户的角色
