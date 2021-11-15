@@ -28,7 +28,10 @@ func InitialApp() {
 	//
 	global.PublicRouter = global.Route.Group("")  // 无权限路由组
 	global.PrivateRouter = global.Route.Group("") // 权限路由组
-	global.PrivateRouter.Use(middleware.JwtAuth()).Use(middleware.CasbinHandler())
+	// 部署环境增加权限验证
+	if global.Config.System.Env == "public" {
+		global.PrivateRouter.Use(middleware.JwtAuth()).Use(middleware.CasbinHandler())
+	}
 }
 
 //
