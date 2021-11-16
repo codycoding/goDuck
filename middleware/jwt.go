@@ -23,6 +23,7 @@ const TokenRedisKeyPrefix = "LoginToke:"
 //
 type UserInfo struct {
 	UserId   int64  `json:"userId"`   // 用户ID
+	DgID     int64  `json:"dgId"`     // 临时
 	UserName string `json:"userName"` // 用户名称
 	NickName string `json:"nickName"` // 用户昵称
 	RoleId   string `json:"roleId"`   // 角色ID
