@@ -1,10 +1,8 @@
 package middleware
 
 import (
-	"github.com/codycoding/goDuck/global"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"time"
+	"net/http"
 )
 
 // Cors
@@ -12,33 +10,20 @@ import (
 //  @return gin.HandlerFunc
 //
 func Cors() gin.HandlerFunc {
-	switch global.Config.Cors.CorsMode {
-	case "none":
-		// 关闭跨域
-		global.Log.Info("cors中间已关闭")
-		return func(c *gin.Context) {
-			c.Next()
+	return func(c *gin.Context) {
+		method := c.Request.Method
+		origin := c.Request.Header.Get("Origin")
+		c.Header("Access-Control-Allow-Origin", origin)
+		c.Header("Access-Control-Allow-Headers", "Content-Type, AccessToken,X-CSRF-Token, Authorization, SlpAuthorization, Token, X-Token, X-User-Id")
+		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT")
+		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type")
+		c.Header("Access-Control-Allow-Credentials", "true")
+
+		// 放行所有OPTIONS方法
+		if method == "OPTIONS" {
+			c.AbortWithStatus(http.StatusNoContent)
 		}
-	case "config":
-		// 按配置处理跨域
-		global.Log.Info("cors中间按自定义配置启动")
-		return cors.New(cors.Config{
-			AllowAllOrigins:        false,
-			AllowOrigins:           global.Config.Cors.AllowOrigins,
-			AllowOriginFunc:        nil,
-			AllowMethods:           global.Config.Cors.AllowMethods,
-			AllowHeaders:           global.Config.Cors.AllowHeaders,
-			AllowCredentials:       global.Config.Cors.AllowCredentials,
-			ExposeHeaders:          global.Config.Cors.ExposeHeaders,
-			MaxAge:                 time.Duration(global.Config.Cors.MaxAge) * time.Hour,
-			AllowWildcard:          true,
-			AllowBrowserExtensions: true,
-			AllowWebSockets:        true,
-			AllowFiles:             true,
-		})
-	default:
-		// 默认跨域设置
-		global.Log.Info("cors中间默认配置启动")
-		return cors.Default()
+		// 处理请求
+		c.Next()
 	}
 }
