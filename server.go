@@ -24,7 +24,7 @@ func InitialApp() {
 	// 路由定义
 	// 初始化默认路由组
 	global.Route = gin.Default()
-	global.Route.Use(middleware.Cors())
+	//global.Route.Use(middleware.Cors())
 	//
 	global.PublicRouter = global.Route.Group("")  // 无权限路由组
 	global.PrivateRouter = global.Route.Group("") // 权限路由组
