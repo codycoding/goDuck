@@ -22,11 +22,11 @@ const TokenRedisKeyPrefix = "LoginToke:"
 //  @Description: 用户登录信息
 //
 type UserInfo struct {
-	UserId   int64  `json:"userId"`   // 用户ID
-	DgID     int64  `json:"dgId"`     // 临时
-	UserName string `json:"userName"` // 用户名称
-	NickName string `json:"nickName"` // 用户昵称
-	RoleId   string `json:"roleId"`   // 角色ID
+	AccountId int64  `json:"accountId"` // 用户ID
+	UserID    int64  `json:"userId"`    // 用户ID(临时)
+	UserName  string `json:"userName"`  // 用户名称
+	NickName  string `json:"nickName"`  // 用户昵称
+	RoleId    string `json:"roleId"`    // 角色ID
 }
 
 //
@@ -132,7 +132,7 @@ func GetTokenRedisKey(userId int64, userName string) string {
 
 // CompareRedisToken 当前Token与Redis记录Token匹配
 func CompareRedisToken(userInfo UserInfo, tokenStr string) bool {
-	redisKey := GetTokenRedisKey(userInfo.UserId, userInfo.UserName)
+	redisKey := GetTokenRedisKey(userInfo.AccountId, userInfo.UserName)
 	ctx := context.Background()
 	redisToken, err := global.Redis.Get(ctx, redisKey).Result()
 	if err == redis.Nil {
@@ -164,7 +164,7 @@ func CreateToken(userInfo UserInfo) (string, error) {
 		return "", sErr
 	} else {
 		ctx := context.Background()
-		redisKey := GetTokenRedisKey(userInfo.UserId, userInfo.UserName)
+		redisKey := GetTokenRedisKey(userInfo.AccountId, userInfo.UserName)
 		global.Redis.Set(ctx, redisKey, tokenStr, time.Duration(global.Config.JWT.ExpiresTime)*time.Minute)
 		return tokenStr, nil
 	}

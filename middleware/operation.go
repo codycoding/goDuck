@@ -49,7 +49,7 @@ func OperationRecord() gin.HandlerFunc {
 		}
 		if claims, ok := c.Get("claims"); ok {
 			waitUse := claims.(*CustomClaims)
-			userId = waitUse.UserInfo.UserId
+			userId = waitUse.UserInfo.AccountId
 		} else {
 			userId = 0
 		}
