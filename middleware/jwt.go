@@ -9,7 +9,6 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
-	"net/http"
 	"time"
 )
 
@@ -51,7 +50,7 @@ func JwtAuth() gin.HandlerFunc {
 		token := c.Request.Header.Get("SlpAuthorization")
 		if token == "" {
 			// 无token信息，返回203
-			core.FailWithMessage(http.StatusNonAuthoritativeInfo, "未登录或非法访问", c)
+			core.UnauthorizedWithMessage("未登录或非法访问", c)
 			c.Abort()
 			return
 		}
@@ -60,13 +59,13 @@ func JwtAuth() gin.HandlerFunc {
 		if err != nil {
 			if err == TokenExpired {
 				// token信息已过期，返回203
-				core.FailWithMessage(http.StatusNonAuthoritativeInfo, "授权已过期", c)
+				core.UnauthorizedWithMessage("授权已过期", c)
 				c.Abort()
 				return
 			}
 			// 其他错误
 			// 返回203
-			core.FailWithMessage(http.StatusNonAuthoritativeInfo, err.Error(), c)
+			core.UnauthorizedWithMessage(err.Error(), c)
 			c.Abort()
 			return
 		}
@@ -78,7 +77,7 @@ func JwtAuth() gin.HandlerFunc {
 		} else {
 			// 匹配失败
 			// 无效Token，返回203
-			core.FailWithMessage(http.StatusNonAuthoritativeInfo, TokenInvalid.Error(), c)
+			core.UnauthorizedWithMessage(TokenInvalid.Error(), c)
 			c.Abort()
 			return
 		}

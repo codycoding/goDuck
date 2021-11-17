@@ -73,3 +73,15 @@ func FailWithMessage(code int, message string, c *gin.Context) {
 func FailWithData(code int, data interface{}, c *gin.Context) {
 	Result(code, data, "操作失败", c)
 }
+
+//
+// UnauthorizedWithMessage
+//  @Description: 授权错误返回信息
+//  @param message
+//  @param c
+//
+func UnauthorizedWithMessage(message string, c *gin.Context) {
+	c.JSON(http.StatusUnauthorized, Response{
+		Msg: message,
+	})
+}
