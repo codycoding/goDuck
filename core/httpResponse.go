@@ -75,6 +75,33 @@ func FailWithData(code int, data interface{}, c *gin.Context) {
 }
 
 //
+// Fail
+//  @Description: 错误返回信息
+//  @param msg
+//  @param c
+//
+func Fail(msg string, c *gin.Context) {
+	c.JSON(http.StatusBadRequest, Response{
+		Code: 400,
+		Data: nil,
+		Msg:  msg,
+	})
+}
+
+//
+// Success
+//  @Description: 成功返回数据
+//  @param data
+//  @param c
+//
+func Success(data interface{}, c *gin.Context) {
+	c.JSON(http.StatusOK, Response{
+		Code: 200,
+		Data: data,
+	})
+}
+
+//
 // UnauthorizedWithMessage
 //  @Description: 授权错误返回信息
 //  @param message
