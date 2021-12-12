@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"fmt"
 	"github.com/codycoding/goDuck/core"
 	"github.com/codycoding/goDuck/global"
 	"github.com/gin-gonic/gin"
@@ -27,10 +26,8 @@ func CasbinHandler() gin.HandlerFunc {
 		sub := waitUse.UserInfo.RoleId
 		// 判断策略中是否存在
 		success, _ := global.Casbin.Enforce(sub, obj, act)
-		fmt.Println("test:", c.Request.URL.RequestURI())
-		global.Log.Info(fmt.Sprintf("权限判断请求: Obj - %s ; Act - %s ; Sub - %s ; Result: %v", obj, act, sub, success))
-		// 开发环境 或 超管角色跳过访问限制
-		if sub == "9999" || success {
+		// 开发环境跳过访问限制
+		if global.Config.System.Env == "develop" || success {
 			c.Next()
 		} else {
 			core.FailWithMessage(http.StatusBadRequest, "权限不足", c)
