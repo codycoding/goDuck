@@ -19,7 +19,8 @@ func CasbinHandler() gin.HandlerFunc {
 		claims, _ := c.Get("claims")
 		waitUse := claims.(*CustomClaims)
 		// 获取请求的URI
-		obj := c.Request.URL.RequestURI()
+		//obj := c.Request.URL.RequestURI()
+		obj := c.Request.URL.Path
 		// 获取请求方法
 		act := c.Request.Method
 		// 获取用户的角色
