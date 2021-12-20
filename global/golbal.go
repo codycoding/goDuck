@@ -23,5 +23,5 @@ var (
 	Log        *zap.Logger            // 日志实例
 	Config     config.Server          // 程序配置
 	Route      *gin.Engine            // 程序路由组
-	Dingtalk   *core.DingTalk         // 钉钉接口
+	Dingtalk   core.DingTalk          // 钉钉接口
 )
