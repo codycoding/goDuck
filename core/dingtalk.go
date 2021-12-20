@@ -95,7 +95,7 @@ func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}, resBody in
 	if resp, err = client.SetBody(bodyStruct).Post(url); err != nil {
 		return err
 	}
-	if err = json.Unmarshal(resp.Body(), resBody); err != nil {
+	if err = json.Unmarshal(resp.Body(), &resBody); err != nil {
 		return err
 	}
 	return nil
