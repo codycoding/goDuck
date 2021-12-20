@@ -21,6 +21,7 @@ func InitialApp() {
 	global.Casbin = core.InitCasbin()                               // 初始化Casbin实例
 	global.Validator = core.GetValidator()                          // 初始化结构体验证器
 	global.Route = gin.Default()                                    // 初始化默认路由组
+	global.Dingtalk = &core.DingTalk{}                              // 初始化钉钉接口
 }
 
 //
