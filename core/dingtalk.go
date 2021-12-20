@@ -81,22 +81,19 @@ func (d *DingTalk) GetToken() (token string, err error) {
 //  @receiver t
 //  @param apiUrl api地址
 //  @param bodyStruct 请求主体结构
-//  @param resBody 返回数据
+//  @return resByte
 //  @return err
 //
-func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}, resBody interface{}) (err error) {
+func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}) (resByte []byte, err error) {
 	client := resty.New().R()
 	var resp *resty.Response
 	var token string
 	if token, err = d.GetToken(); err != nil {
-		return err
+		return resByte, err
 	}
 	url := apiUrl + "&access_token=" + token
 	if resp, err = client.SetBody(bodyStruct).Post(url); err != nil {
-		return err
+		return resByte, err
 	}
-	if err = json.Unmarshal(resp.Body(), &resBody); err != nil {
-		return err
-	}
-	return nil
+	return resp.Body(), nil
 }
