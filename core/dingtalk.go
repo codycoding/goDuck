@@ -84,7 +84,7 @@ func (d *DingTalk) GetToken() (token string, err error) {
 //  @param resBody 返回数据
 //  @return err
 //
-func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}, resBody *interface{}) (err error) {
+func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}, resBody interface{}) (err error) {
 	client := resty.New().R()
 	var resp *resty.Response
 	var token string
