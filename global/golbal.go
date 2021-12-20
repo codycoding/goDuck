@@ -4,7 +4,6 @@ package global
 
 import (
 	"github.com/casbin/casbin/v2"
-	"github.com/codycoding/goDuck/core"
 	"github.com/codycoding/goDuck/global/config"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
@@ -23,5 +22,5 @@ var (
 	Log        *zap.Logger            // 日志实例
 	Config     config.Server          // 程序配置
 	Route      *gin.Engine            // 程序路由组
-	Dingtalk   core.DingTalk          // 钉钉接口
+	//Dingtalk   core.DingTalk          // 钉钉接口
 )
