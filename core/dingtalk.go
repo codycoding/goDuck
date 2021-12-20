@@ -91,8 +91,8 @@ func (d *DingTalk) CallPostApi(apiUrl string, bodyStruct interface{}) (resByte [
 	if token, err = d.GetToken(); err != nil {
 		return resByte, err
 	}
-	url := apiUrl + "&access_token=" + token
-	if resp, err = client.SetBody(bodyStruct).Post(url); err != nil {
+	//url := apiUrl + "&access_token=" + token
+	if resp, err = client.SetQueryParam("access_token", token).SetBody(bodyStruct).Post(apiUrl); err != nil {
 		return resByte, err
 	}
 	return resp.Body(), nil
