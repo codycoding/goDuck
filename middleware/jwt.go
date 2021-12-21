@@ -21,11 +21,11 @@ const TokenRedisKeyPrefix = "LoginToke:"
 //  @Description: 用户登录信息
 //
 type UserInfo struct {
-	AccountId int64  `json:"accountId"` // 用户ID
-	UserID    int64  `json:"userId"`    // 用户ID(临时)
-	UserName  string `json:"userName"`  // 用户名称
-	NickName  string `json:"nickName"`  // 用户昵称
-	RoleId    string `json:"roleId"`    // 角色ID
+	AccountId  int64  `json:"accountId"`  // 用户ID
+	DingtalkId string `json:"dingtalkId"` // 钉钉ID
+	UserName   string `json:"userName"`   // 用户名称
+	NickName   string `json:"nickName"`   // 用户昵称
+	RoleId     string `json:"roleId"`     // 角色ID
 }
 
 //
