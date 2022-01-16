@@ -13,9 +13,9 @@ func initServer(address string, router *gin.Engine) server {
 	return &http.Server{
 		Addr:    address,
 		Handler: router,
-		// IO超时限制修改为 30s
-		ReadTimeout:    180 * time.Second, //10 * time.Second,
-		WriteTimeout:   180 * time.Second, //10 * time.Second,
-		MaxHeaderBytes: 1 << 20,
+		// IO超时限制
+		ReadTimeout:    180 * time.Second,
+		WriteTimeout:   180 * time.Second,
+		MaxHeaderBytes: 4 << 20,
 	}
 }
