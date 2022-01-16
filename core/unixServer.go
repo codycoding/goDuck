@@ -12,8 +12,8 @@ import (
 func initServer(address string, router *gin.Engine) server {
 	s := endless.NewServer(address, router)
 	// IO超时限制修改为 30s
-	s.ReadHeaderTimeout = 30 * time.Millisecond //10 * time.Second,
-	s.WriteTimeout = 30 * time.Second           //10 * time.Second,
+	s.ReadHeaderTimeout = 180 * time.Second //10 * time.Second,
+	s.WriteTimeout = 180 * time.Second      //10 * time.Second,
 	s.MaxHeaderBytes = 1 << 20
 	return s
 }
