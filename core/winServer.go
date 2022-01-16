@@ -16,6 +16,6 @@ func initServer(address string, router *gin.Engine) server {
 		// IO超时限制
 		ReadTimeout:    180 * time.Second,
 		WriteTimeout:   180 * time.Second,
-		MaxHeaderBytes: 4 << 20,
+		MaxHeaderBytes: 1 << 20,
 	}
 }
